@@ -3,32 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | Montrel Media</title>
+  <title>Contact Us | Montrel Media</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+
+    .premium-form {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      max-width: 600px;
+    }
+
+    .premium-form input,
+    .premium-form textarea {
+      width: 100%;
+      padding: 0.85rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: none;
+      background: #fff;
+      color: #000;
+      font-family: 'Stix Two Text', serif;
+    }
+
+    .premium-form input:focus,
+    .premium-form textarea:focus {
+      outline: 2px solid var(--primary);
+      background-color: #fdfae7;
+    }
+
+    .premium-form button {
+      background: var(--primary);
+      color: var(--secondary);
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 6px;
+      font-family: 'Futura', sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .premium-form button:hover {
+      background: #07301b;
+    }
+
+    .footer-icons {
+      margin-top: 1rem;
+    }
+
+    .footer-icons a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: var(--secondary);
+      font-family: 'Futura', sans-serif;
+    }
+
+    .footer-icons a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
 <body>
-<header>
-  <img src="images/logo.png" alt="Montrel Media Logo" class="logo" />
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="careers.html">Careers</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-    </div>
+  <header>
+    <img src="images/logo.png" alt="Montrel Media Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
   <main class="container">
     <h1>Contact Us</h1>
     <p>We’d love to hear from you. Reach out to discuss how we can help your brand grow.</p>
-    <ul>
-      <li>Email: <strong>enquiries@montrelmedia.com</strong></li>
-      <li>Phone: <strong>07988 306 731</strong></li>
-      <li>Location: London, UK (Remote Available)</li>
-    </ul>
 
-    <form action="mailto:enquiries@montrelmedia.com" method="POST" enctype="text/plain">
+    <div class="contact-info">
+      <ul>
+        <li>Email: <strong>enquiries@montrelmedia.com</strong></li>
+        <li>Phone: <strong>07988 306 731</strong></li>
+        <li>Location: London, UK (Remote Available)</li>
+      </ul>
+    </div>
+
+    <form action="mailto:enquiries@montrelmedia.com" method="POST" enctype="text/plain" class="premium-form">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <input type="text" name="subject" placeholder="Subject" />
@@ -39,6 +104,10 @@
 
   <footer>
     &copy; 2025 Montrel Media. All rights reserved.
+    <div class="footer-icons">
+      <a href="https://www.linkedin.com/company/montrelmedia" target="_blank">LinkedIn</a> |
+      <a href="https://www.instagram.com/montrelmedia" target="_blank">Instagram</a>
+    </div>
   </footer>
 </body>
 </html>
