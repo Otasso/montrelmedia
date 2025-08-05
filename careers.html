@@ -16,25 +16,24 @@
       animation: fadeUp 0.5s ease-in-out;
     }
 
-    .job {
+    .job-card {
       display: none;
-      animation: fadeUp 0.5s ease-in-out;
     }
 
-    .job.active {
+    .job-card.active {
       display: block;
     }
 
-    .job h3 {
+    .job-card h3 {
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
     }
 
-    .job p {
+    .job-card p {
       margin-bottom: 1rem;
     }
 
-    .job ul {
+    .job-card ul {
       margin-bottom: 1rem;
       padding-left: 1.2rem;
     }
@@ -43,6 +42,70 @@
       font-style: italic;
       font-size: 0.9rem;
       opacity: 0.7;
+    }
+
+    .job-controls {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+    .job-controls button {
+      background-color: var(--primary);
+      color: var(--secondary);
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Futura', sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    .job-controls button:hover {
+      background-color: #07301b;
+    }
+
+    .apply-form {
+      margin-top: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .apply-form h4 {
+      margin-bottom: 1rem;
+      font-family: 'Futura', sans-serif;
+    }
+
+    .apply-form input,
+    .apply-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      font-family: 'Stix Two Text', serif;
+    }
+
+    .apply-form input[type="file"] {
+      background-color: #fff;
+    }
+
+    .apply-form button {
+      background-color: var(--primary);
+      color: var(--secondary);
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Futura', sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    .apply-form button:hover {
+      background-color: #07301b;
     }
   </style>
 </head>
@@ -63,7 +126,7 @@
     <p>We're building more than an agency—we're shaping the future of marketing leadership.</p>
 
     <div class="job-slider">
-      <div class="job active">
+      <div class="job-card active">
         <h3>Digital Marketing Executive</h3>
         <p>Lead our paid ad campaigns and optimize performance across digital channels.</p>
         <ul>
@@ -72,9 +135,20 @@
           <li>Excellent copywriting and content skills</li>
         </ul>
         <p class="deadline">Applications close: September 15, 2025</p>
+
+        <div class="apply-form">
+          <h4>Apply for this role</h4>
+          <form action="mailto:careers@montrelmedia.com" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input type="email" name="email" placeholder="Email Address" required />
+            <input type="file" name="cv" accept=".pdf,.doc,.docx" required />
+            <textarea name="message" placeholder="Your message or cover letter" rows="5"></textarea>
+            <button type="submit">Submit Application</button>
+          </form>
+        </div>
       </div>
 
-      <div class="job">
+      <div class="job-card">
         <h3>Brand Strategist</h3>
         <p>Develop unique brand voices and campaigns across digital and traditional formats.</p>
         <ul>
@@ -83,9 +157,20 @@
           <li>Familiarity with Adobe Creative Suite</li>
         </ul>
         <p class="deadline">Applications close: October 1, 2025</p>
+
+        <div class="apply-form">
+          <h4>Apply for this role</h4>
+          <form action="mailto:careers@montrelmedia.com" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input type="email" name="email" placeholder="Email Address" required />
+            <input type="file" name="cv" accept=".pdf,.doc,.docx" required />
+            <textarea name="message" placeholder="Your message or cover letter" rows="5"></textarea>
+            <button type="submit">Submit Application</button>
+          </form>
+        </div>
       </div>
 
-      <div class="job">
+      <div class="job-card">
         <h3>Marketing Analyst</h3>
         <p>Transform data into insights that drive business growth across campaigns.</p>
         <ul>
@@ -94,10 +179,24 @@
           <li>Detail-oriented with reporting experience</li>
         </ul>
         <p class="deadline">Applications close: October 10, 2025</p>
+
+        <div class="apply-form">
+          <h4>Apply for this role</h4>
+          <form action="mailto:careers@montrelmedia.com" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input type="email" name="email" placeholder="Email Address" required />
+            <input type="file" name="cv" accept=".pdf,.doc,.docx" required />
+            <textarea name="message" placeholder="Your message or cover letter" rows="5"></textarea>
+            <button type="submit">Submit Application</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="job-controls">
+        <button id="prev">← Previous</button>
+        <button id="next">Next →</button>
       </div>
     </div>
-
-    <p style="margin-top: 2rem;">To apply, email your CV to <strong>careers@montrelmedia.com</strong>.</p>
   </main>
 
   <footer>
@@ -105,14 +204,25 @@
   </footer>
 
   <script>
-    const jobs = document.querySelectorAll('.job');
+    const cards = document.querySelectorAll('.job-card');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
     let index = 0;
 
-    setInterval(() => {
-      jobs[index].classList.remove('active');
-      index = (index + 1) % jobs.length;
-      jobs[index].classList.add('active');
-    }, 6000);
+    function updateCards() {
+      cards.forEach(card => card.classList.remove('active'));
+      cards[index].classList.add('active');
+    }
+
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % cards.length;
+      updateCards();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + cards.length) % cards.length;
+      updateCards();
+    });
   </script>
 </body>
 </html>
