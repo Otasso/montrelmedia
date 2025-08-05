@@ -1,17 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Futura:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Stix+Two+Text&display=swap');
-/* Header with right-aligned nav and fitted logo */
+
+/* -------------------
+   Theme Variables
+-------------------- */
 :root {
-  --primary: #0A3521;     /* Dark Green */
-  --secondary: #FFFDD0;   /* Cream background */
-  --text-dark: #111111;   /* General text color */
+  --primary: #0A3521;      /* Dark Green */
+  --secondary: #FFFDD0;    /* Cream Background */
+  --text-dark: #111111;
   --white: #FFFFFF;
-  --card-bg: rgba(10, 53, 33, 0.08);  /* Slight green tint for cards */
+
+  --card-bg: rgba(10, 53, 33, 0.08);
   --hover-bg: rgba(10, 53, 33, 0.12);
-  --transition: 0.3s;
+  --transition: 0.3s ease;
 }
 
-/* Base styles */
+/* -------------------
+   Global Reset
+-------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--secondary);
   color: var(--text-dark);
@@ -19,13 +31,15 @@ body {
   line-height: 1.6;
 }
 
+/* -------------------
+   Header / Nav Bar
+-------------------- */
 header {
-  background: #ffffff;
-  padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #2C543D;
+  padding: 1rem 2rem;
+  background: var(--primary);
 }
 
 .logo {
@@ -36,65 +50,12 @@ header {
 nav {
   display: flex;
   gap: 2rem;
-  margin-left: auto;
 }
 
 nav a {
   font-family: 'Futura', sans-serif;
   font-weight: bold;
-  color: #2C543D;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #000000;
-}
-
-:root {
-  --primary: #0A3521;      /* Dark green base */
-  --secondary: #FFFDD0;    /* Cream */
-  --white: #FFFFFF;        /* Accent/Highlight */
-
-  --card-bg: rgba(255,255,255,0.05);
-  --hover-bg: rgba(255,255,255,0.1);
-  --transition: 0.3s;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: var(--primary);
   color: var(--secondary);
-  font-family: 'Stix Two Text', serif;
-  line-height: 1.6;
-}
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background: var(--primary);
-}
-
-.logo {
-  width: 160px;
-}
-
-nav {
-  display: flex;
-  gap: 2rem;
-}
-
-nav a {
-  font-family: 'Futura', sans-serif;
-  color: var(--secondary);
-  font-weight: 700;
   text-decoration: none;
   transition: color var(--transition);
 }
@@ -103,6 +64,21 @@ nav a:hover {
   color: var(--white);
 }
 
+/* -------------------
+   Footer
+-------------------- */
+footer {
+  background: #000;
+  color: var(--secondary);
+  text-align: center;
+  padding: 1.5rem;
+  font-family: 'Futura', sans-serif;
+  font-size: 0.9rem;
+}
+
+/* -------------------
+   Layout Containers
+-------------------- */
 .container {
   max-width: 1000px;
   margin: 3rem auto;
@@ -115,25 +91,28 @@ h1, h2, h3 {
 }
 
 .title {
-  border-bottom: 2px solid var(--secondary);
+  border-bottom: 2px solid var(--primary);
   padding-bottom: 0.3rem;
   display: inline-block;
+  margin-bottom: 1rem;
 }
 
+/* -------------------
+   Card Design
+-------------------- */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
   padding: 0 1rem;
-
 }
 
 .card {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--card-bg);
   padding: 2rem;
   border-radius: 8px;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: background var(--transition), transform var(--transition);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -141,19 +120,19 @@ h1, h2, h3 {
 }
 
 .card:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--hover-bg);
   transform: translateY(-5px);
 }
+
 .card ul {
   list-style: disc;
   padding-left: 1.5rem;
   margin-top: 1rem;
 }
 
-}
-
-}
-
+/* -------------------
+   CTA Buttons
+-------------------- */
 .cta {
   display: inline-block;
   margin-top: 2rem;
@@ -172,6 +151,9 @@ h1, h2, h3 {
   background: #e8e3bf;
 }
 
+/* -------------------
+   Contact Form
+-------------------- */
 form {
   max-width: 500px;
   display: flex;
@@ -185,10 +167,12 @@ input, textarea {
   border: none;
   border-radius: 4px;
   font-family: 'Stix Two Text', serif;
+  background-color: #fff;
+  color: #000;
 }
 
 input:focus, textarea:focus {
-  outline: 2px solid var(--secondary);
+  outline: 2px solid var(--primary);
   background: rgba(255, 253, 208, 0.15);
 }
 
@@ -208,15 +192,9 @@ button:hover {
   background: #e8e3bf;
 }
 
-footer {
-  background: var(--primary);
-  padding: 2rem;
-  text-align: center;
-  font-family: 'Futura', sans-serif;
-  font-size: 0.9rem;
-  color: var(--secondary);
-}
-
+/* -------------------
+   Profile Cards
+-------------------- */
 .profile-grid {
   display: grid;
   gap: 2rem;
@@ -225,12 +203,12 @@ footer {
 }
 
 .profile-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition);
   padding-bottom: 1rem;
 }
 
@@ -261,20 +239,11 @@ footer {
   opacity: 0.8;
 }
 
+/* -------------------
+   Responsive
+-------------------- */
 @media (min-width: 768px) {
   .profile-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .profile-card {
-    flex-direction: column;
-  }
-}
-footer {
-  background: #000;
-  color: #FEFBEC;
-  text-align: center;
-  padding: 1rem;
-  font-family: 'Futura', sans-serif;
-  font-size: 0.9rem;
 }
