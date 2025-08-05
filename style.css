@@ -20,7 +20,7 @@
 -------------------- */
 
 .hero-section {
-  background: url('images/home-bg.jpg') no-repeat center center/cover;
+  background: url('images/home-bg.jpg.png') no-repeat center center/cover;
   height: 100vh;
   display: flex;
   align-items: center;
