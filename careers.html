@@ -3,35 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | Montrel Media</title>
+  <title>Careers | Montrel Media</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .job-slider {
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      background: rgba(10, 53, 33, 0.08);
+      padding: 2rem;
+      animation: fadeUp 0.5s ease-in-out;
+    }
+
+    .job {
+      display: none;
+      animation: fadeUp 0.5s ease-in-out;
+    }
+
+    .job.active {
+      display: block;
+    }
+
+    .job h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .job p {
+      margin-bottom: 1rem;
+    }
+
+    .job ul {
+      margin-bottom: 1rem;
+      padding-left: 1.2rem;
+    }
+
+    .deadline {
+      font-style: italic;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <img src="images/logo.png" alt="Montrel Media Logo" class="logo" />
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="careers.html">Careers</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  <header>
+    <img src="images/logo.png" alt="Montrel Media Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
   <main class="container">
     <h1>Careers at Montrel Media</h1>
     <p>We're building more than an agency—we're shaping the future of marketing leadership.</p>
-    <h2>Current Openings:</h2>
-    <ul>
-      <li>Digital Marketing Executive</li>
-      <li>Brand Strategist</li>
-      <li>Marketing Analyst</li>
-    </ul>
-    <p>To apply, email your CV to <strong>careers@montrelmedia.com</strong>.</p>
+
+    <div class="job-slider">
+      <div class="job active">
+        <h3>Digital Marketing Executive</h3>
+        <p>Lead our paid ad campaigns and optimize performance across digital channels.</p>
+        <ul>
+          <li>2+ years experience with Meta/Google Ads</li>
+          <li>Understanding of SEO, SEM, analytics</li>
+          <li>Excellent copywriting and content skills</li>
+        </ul>
+        <p class="deadline">Applications close: September 15, 2025</p>
+      </div>
+
+      <div class="job">
+        <h3>Brand Strategist</h3>
+        <p>Develop unique brand voices and campaigns across digital and traditional formats.</p>
+        <ul>
+          <li>Experience in creative direction or branding</li>
+          <li>Understanding of audience research and messaging</li>
+          <li>Familiarity with Adobe Creative Suite</li>
+        </ul>
+        <p class="deadline">Applications close: October 1, 2025</p>
+      </div>
+
+      <div class="job">
+        <h3>Marketing Analyst</h3>
+        <p>Transform data into insights that drive business growth across campaigns.</p>
+        <ul>
+          <li>Strong skills in Excel, GA4, Looker Studio</li>
+          <li>Background in statistics or marketing analytics</li>
+          <li>Detail-oriented with reporting experience</li>
+        </ul>
+        <p class="deadline">Applications close: October 10, 2025</p>
+      </div>
+    </div>
+
+    <p style="margin-top: 2rem;">To apply, email your CV to <strong>careers@montrelmedia.com</strong>.</p>
   </main>
 
   <footer>
     &copy; 2025 Montrel Media. All rights reserved.
   </footer>
+
+  <script>
+    const jobs = document.querySelectorAll('.job');
+    let index = 0;
+
+    setInterval(() => {
+      jobs[index].classList.remove('active');
+      index = (index + 1) % jobs.length;
+      jobs[index].classList.add('active');
+    }, 6000);
+  </script>
 </body>
 </html>
