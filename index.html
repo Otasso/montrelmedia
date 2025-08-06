@@ -66,6 +66,17 @@
       0% { opacity: 0; transform: translateY(40px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+    <script>
+  const testimonials = document.querySelectorAll('.testimonial');
+  let tIndex = 0;
+
+  setInterval(() => {
+    testimonials[tIndex].classList.remove('active');
+    tIndex = (tIndex + 1) % testimonials.length;
+    testimonials[tIndex].classList.add('active');
+  }, 5000);
+</script>
+
   </style>
 </head>
 <body>
