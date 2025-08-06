@@ -68,7 +68,40 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+.hero-reviews {
+  margin-bottom: 2rem;
+  position: relative;
+  height: 100px;
+  animation: fadeIn 1.3s ease-in-out;
 }
+
+.testimonial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.testimonial.active {
+  opacity: 1;
+}
+
+.stars {
+  font-size: 1.8rem;
+  color: gold;
+  letter-spacing: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--secondary);
+  opacity: 0.9;
+}
+
 
 body {
   background-color: var(--secondary);
