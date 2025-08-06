@@ -14,6 +14,40 @@
       color: var(--secondary);
     }
 
+    .hero-reviews {
+      margin-bottom: 2rem;
+      position: relative;
+      height: 100px;
+      animation: fadeIn 1.3s ease-in-out;
+    }
+
+    .testimonial {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .testimonial.active {
+      opacity: 1;
+    }
+
+    .stars {
+      font-size: 1.8rem;
+      color: gold;
+      letter-spacing: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--secondary);
+      opacity: 0.9;
+    }
+
     .hero-content h1 {
       font-size: 2.5rem;
       animation: fadeInDown 1s ease-out;
@@ -66,17 +100,6 @@
       0% { opacity: 0; transform: translateY(40px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-    <script>
-  const testimonials = document.querySelectorAll('.testimonial');
-  let tIndex = 0;
-
-  setInterval(() => {
-    testimonials[tIndex].classList.remove('active');
-    tIndex = (tIndex + 1) % testimonials.length;
-    testimonials[tIndex].classList.add('active');
-  }, 5000);
-</script>
-
   </style>
 </head>
 <body>
@@ -92,27 +115,28 @@
     </nav>
   </header>
 
-<div class="hero-reviews">
-  <div class="testimonial active">
-    <div class="stars">★★★★★</div>
-    <p class="quote">“Montrel Media helped us 3x our reach in just two months.”</p>
-  </div>
-  <div class="testimonial">
-    <div class="stars">★★★★★</div>
-    <p class="quote">“From concept to conversion, they nailed it.”</p>
-  </div>
-  <div class="testimonial">
-    <div class="stars">★★★★★</div>
-    <p class="quote">“The best ROI we've had on any campaign. Worth every penny.”</p>
-  </div>
-</div>
+  <div class="hero-section">
+    <div class="hero-reviews">
+      <div class="testimonial active">
+        <div class="stars">★★★★★</div>
+        <p class="quote">“Montrel Media helped us 3x our reach in just two months.”</p>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">“From concept to conversion, they nailed it.”</p>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">“The best ROI we've had on any campaign. Worth every penny.”</p>
+      </div>
+    </div>
 
-  <div class="hero-content">
-    <h1>Partnerships That Prosper</h1>
-    <p>Montrel Media delivers data-driven strategy, creative storytelling, and measurable growth for modern brands.</p>
-    <a href="contact.html" class="cta">Book a Free Consultation</a>
+    <div class="hero-content">
+      <h1>Partnerships That Prosper</h1>
+      <p>Montrel Media delivers data-driven strategy, creative storytelling, and measurable growth for modern brands.</p>
+      <a href="contact.html" class="cta">Book a Free Consultation</a>
+    </div>
   </div>
-</div>
 
   <section class="importance-section">
     <h2>Why Marketing Matters</h2>
@@ -128,6 +152,32 @@
   <footer>
     &copy; 2025 Montrel Media. All rights reserved.
   </footer>
+
+  <script>
+    const testimonials = document.querySelectorAll('.testimonial');
+    const reviewsContainer = document.querySelector('.hero-reviews');
+    let tIndex = 0;
+    let interval;
+
+    function rotateTestimonials() {
+      testimonials[tIndex].classList.remove('active');
+      tIndex = (tIndex + 1) % testimonials.length;
+      testimonials[tIndex].classList.add('active');
+    }
+
+    function startRotation() {
+      interval = setInterval(rotateTestimonials, 3000);
+    }
+
+    function stopRotation() {
+      clearInterval(interval);
+    }
+
+    reviewsContainer.addEventListener('mouseenter', stopRotation);
+    reviewsContainer.addEventListener('mouseleave', startRotation);
+
+    startRotation();
+  </script>
 
 </body>
 </html>
