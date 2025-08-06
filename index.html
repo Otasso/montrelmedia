@@ -5,25 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Montrel Media | Partnerships That Prosper</title>
   <link rel="stylesheet" href="style.css" />
-<header>
-  <img src="images/logo.png" alt="Montrel Media Logo" class="logo" />
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="careers.html">Careers</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  <style>
+    .hero-section {
+      background: url('images/hero-bg.jpg') no-repeat center center/cover;
+      padding: 6rem 2rem;
+      text-align: center;
+      color: var(--secondary);
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .hero-content p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .importance-section {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: var(--secondary);
+      color: var(--text-dark);
+      animation: slideIn 1.2s ease-out;
+    }
+
+    .importance-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-family: 'Futura', sans-serif;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .importance-section p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      animation: fadeInUp 1.6s ease;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="images/logo.png" alt="Montrel Media Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
-  
-<div class="hero-section">
-  <div class="hero-content">
-    <h1>Partnerships That Prosper</h1>
-    <p>Montrel Media delivers data-driven strategy, creative storytelling, and measurable growth for modern brands.</p>
-    <a href="contact.html" class="cta">Book a Free Consultation</a>
+
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Partnerships That Prosper</h1>
+      <p>Montrel Media delivers data-driven strategy, creative storytelling, and measurable growth for modern brands.</p>
+      <a href="contact.html" class="cta">Book a Free Consultation</a>
+    </div>
   </div>
-</div>
+
+  <section class="importance-section">
+    <h2>Why Marketing Matters</h2>
+    <p>Marketing is no longer optional—it's essential. Whether you're launching a startup, scaling an enterprise, or building trust with a new audience, marketing is how you define your brand, connect with people, and grow with purpose. At Montrel Media, we transform vision into visibility through strategy, data, and innovation.</p>
+  </section>
 
   <main class="container">
     <h1>Marketing Built to Scale</h1>
@@ -34,5 +102,6 @@
   <footer>
     &copy; 2025 Montrel Media. All rights reserved.
   </footer>
+
 </body>
 </html>
