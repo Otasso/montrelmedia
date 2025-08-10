@@ -100,24 +100,37 @@
     }
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
     .stat-card {
       background: var(--secondary);
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .stat-card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .stat-card h3 {
-      font-size: 2rem;
+      font-size: 3rem;
       color: var(--primary);
       margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .stat-card span {
+      font-size: 1.5rem;
+      color: var(--primary);
     }
     .stat-card p {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--text-dark);
+      margin-top: 0.5rem;
     }
 
     @keyframes fadeInDown {
@@ -182,7 +195,7 @@
     <p>Marketing is no longer optional—it's essential. Whether you're launching a startup, scaling an enterprise, or building trust with a new audience, marketing is how you define your brand, connect with people, and grow with purpose. At Montrel Media, we transform vision into visibility through strategy, data, and innovation.</p>
   </section>
 
-  <!-- Stats Section with Animated Numbers -->
+  <!-- Stats Section with Animated Numbers and Fade-In -->
   <section class="stats-section">
     <h2>Marketing That Delivers Results</h2>
     <p>In today’s fast-moving digital world, your marketing strategy can make or break your growth. At Montrel Media, we use data-driven strategies to help brands like yours cut through the noise and connect with the right audience.</p>
@@ -242,9 +255,11 @@
     reviewsContainer.addEventListener('mouseleave', startRotation);
     startRotation();
 
-    // Stats number animation
+    // Stats number animation + fade-in
     const counters = document.querySelectorAll('.count');
+    const statCards = document.querySelectorAll('.stat-card');
     const speed = 50;
+    let statsStarted = false;
 
     const animateCount = (counter) => {
       const updateCount = () => {
@@ -262,15 +277,17 @@
       updateCount();
     };
 
-    const statsSection = document.querySelector('.stats-section');
-    let statsStarted = false;
-
     window.addEventListener('scroll', () => {
-      const sectionTop = statsSection.getBoundingClientRect().top;
+      const sectionTop = document.querySelector('.stats-section').getBoundingClientRect().top;
       const triggerPoint = window.innerHeight - 100;
 
       if (sectionTop < triggerPoint && !statsStarted) {
         counters.forEach(counter => animateCount(counter));
+        statCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, index * 200);
+        });
         statsStarted = true;
       }
     });
