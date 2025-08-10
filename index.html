@@ -87,6 +87,39 @@
       animation: fadeInUp 1.6s ease;
     }
 
+    /* Stats section styles */
+    .stats-section {
+      padding: 4rem 2rem;
+      background: #fff;
+      text-align: center;
+    }
+    .stats-section h2 {
+      font-family: 'Futura', sans-serif;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .stat-card {
+      background: var(--secondary);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .stat-card h3 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .stat-card p {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+    }
+
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -149,6 +182,31 @@
     <p>Marketing is no longer optional—it's essential. Whether you're launching a startup, scaling an enterprise, or building trust with a new audience, marketing is how you define your brand, connect with people, and grow with purpose. At Montrel Media, we transform vision into visibility through strategy, data, and innovation.</p>
   </section>
 
+  <!-- Added Stats Section -->
+  <section class="stats-section">
+    <h2>Marketing That Delivers Results</h2>
+    <p>In today’s fast-moving digital world, your marketing strategy can make or break your growth. At Montrel Media, we use data-driven strategies to help brands like yours cut through the noise and connect with the right audience.</p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>3X</h3>
+        <p>Average increase in brand reach for our clients within the first 90 days.</p>
+      </div>
+      <div class="stat-card">
+        <h3>72%</h3>
+        <p>Of consumers say they only engage with personalised marketing messages.</p>
+      </div>
+      <div class="stat-card">
+        <h3>5:1</h3>
+        <p>Average ROI our clients see from campaigns we design and execute.</p>
+      </div>
+      <div class="stat-card">
+        <h3>89%</h3>
+        <p>Of marketers report higher sales when integrating multi-channel campaigns.</p>
+      </div>
+    </div>
+  </section>
+
   <main class="container">
     <h1>Marketing Built to Scale</h1>
     <p>At Montrel Media, we engineer measurable growth using creativity, data, and technology.</p>
@@ -183,34 +241,7 @@
     reviewsContainer.addEventListener('mouseleave', startRotation);
 
     startRotation();
-<section class="stats-section">
-  <h2>Marketing That Delivers Results</h2>
-  <p>In today’s fast-moving digital world, your marketing strategy can make or break your growth. At Montrel Media, we use data-driven strategies to help brands like yours cut through the noise and connect with the right audience.</p>
-
-  <div class="stats-grid">
-    <div class="stat-card">
-      <h3>3X</h3>
-      <p>Average increase in brand reach for our clients within the first 90 days.</p>
-    </div>
-    <div class="stat-card">
-      <h3>72%</h3>
-      <p>Of consumers say they only engage with personalised marketing messages.</p>
-    </div>
-    <div class="stat-card">
-      <h3>5:1</h3>
-      <p>Average ROI our clients see from campaigns we design and execute.</p>
-    </div>
-    <div class="stat-card">
-      <h3>89%</h3>
-      <p>Of marketers report higher sales when integrating multi-channel campaigns.</p>
-    </div>
-  </div>
-</section>
-
-    
   </script>
-  
-<script src='https://www.noupe.com/embed/01988628572174669966f8eee400a3dfb0db.js'></script>
-  
+
 </body>
 </html>
