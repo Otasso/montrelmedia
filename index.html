@@ -152,57 +152,12 @@
       0% { opacity: 0; transform: translateY(40px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
-    /* ✅ Mobile Responsive Styles */
-    @media (max-width: 1024px) {
-      .hero-content h1 { font-size: 2rem; }
-      .hero-content p { font-size: 1rem; }
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background-color: var(--secondary);
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        border-radius: 8px;
-        padding: 1rem;
-      }
-      nav a { margin: 0.5rem 0; }
-      .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: var(--primary);
-      }
-      .stats-grid { grid-template-columns: 1fr; }
-      .hero-content h1 { font-size: 1.8rem; }
-      .hero-content p { font-size: 0.95rem; }
-      .stat-card h3 { font-size: 2.5rem; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-content h1 { font-size: 1.6rem; }
-      .hero-content p { font-size: 0.9rem; }
-      .stats-grid { gap: 1rem; }
-      .stat-card { padding: 1rem; }
-    }
   </style>
 </head>
 <body>
 
   <header>
     <img src="images/logo.png" alt="Montrel Media Logo" class="logo" />
-    <button class="menu-toggle" aria-label="Toggle menu" style="display:none;">☰</button>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -240,6 +195,7 @@
     <p>Marketing is no longer optional—it's essential. Whether you're launching a startup, scaling an enterprise, or building trust with a new audience, marketing is how you define your brand, connect with people, and grow with purpose. At Montrel Media, we transform vision into visibility through strategy, data, and innovation.</p>
   </section>
 
+  <!-- Stats Section with Animated Numbers and Fade-In -->
   <section class="stats-section">
     <h2>Marketing That Delivers Results</h2>
     <p>In today’s fast-moving digital world, your marketing strategy can make or break your growth. At Montrel Media, we use data-driven strategies to help brands like yours cut through the noise and connect with the right audience.</p>
@@ -275,14 +231,6 @@
   </footer>
 
   <script>
-    // Mobile Menu Toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
-    menuToggle.style.display = 'block';
-    menuToggle.addEventListener('click', () => {
-      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-    });
-
     // Testimonial rotation
     const testimonials = document.querySelectorAll('.testimonial');
     const reviewsContainer = document.querySelector('.hero-reviews');
@@ -318,6 +266,7 @@
         const target = +counter.getAttribute('data-target');
         const count = +counter.innerText;
         const increment = target / speed;
+
         if (count < target) {
           counter.innerText = Math.ceil(count + increment);
           setTimeout(updateCount, 20);
@@ -331,6 +280,7 @@
     window.addEventListener('scroll', () => {
       const sectionTop = document.querySelector('.stats-section').getBoundingClientRect().top;
       const triggerPoint = window.innerHeight - 100;
+
       if (sectionTop < triggerPoint && !statsStarted) {
         counters.forEach(counter => animateCount(counter));
         statCards.forEach((card, index) => {
@@ -341,7 +291,7 @@
         statsStarted = true;
       }
     });
-    <script src='https://www.noupe.com/embed/01988628572174669966f8eee400a3dfb0db.js'></script>
   </script>
+
 </body>
 </html>
