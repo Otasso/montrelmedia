@@ -3,19 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | Montrel Media</title>
+  <title>Our Services | Montrel Media</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <style>
-    /* Ensure service images match the rest of your site’s look */
+    /* Keep same card style */
     .card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
       border-bottom: 3px solid var(--primary);
     }
+
+    /* Carousel container */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+
+    .card {
+      flex: 0 0 calc(33.333% - 1rem);
+      margin: 0.5rem;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Carousel buttons */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .carousel-btn.left { left: 10px; }
+    .carousel-btn.right { right: 10px; }
+
+    /* Mobile adjustments */
+    @media (max-width: 900px) {
+      .card {
+        flex: 0 0 calc(50% - 1rem);
+      }
+    }
+    @media (max-width: 600px) {
+      .card {
+        flex: 0 0 calc(100% - 1rem);
+      }
+    }
   </style>
 </head>
+<body>
 <header>
   <img src="images/logo.png" alt="Montrel Media Logo" class="logo" />
   <nav>
@@ -26,13 +77,16 @@
     <a href="contact.html">Contact</a>
   </nav>
 </header>
-  <div class="container">
-    <h1>Our Services</h1>
-    <p><strong>Your Success, Our Strategy. Built to Grow With You.</strong></p>
-    <p>At Montrel Media, we provide modern marketing solutions that combine strategy, creativity, and cutting-edge technology. From digital dominance to traditional visibility, our services are designed to generate real results fast.</p>
 
-    <div class="card-grid">
+<div class="container">
+  <h1>Our Services</h1>
+  <p><strong>Your Success, Our Strategy. Built to Grow With You.</strong></p>
+  <p>At Montrel Media, we provide modern marketing solutions that combine strategy, creativity, and cutting-edge technology. From digital dominance to traditional visibility, our services are designed to generate real results fast.</p>
 
+  <div class="carousel">
+    <button class="carousel-btn left">&#10094;</button>
+    <div class="carousel-track">
+      <!-- Cards go here -->
       <div class="card">
         <img src="images/service-seo.jpg" alt="SEO Service">
         <h2>🔍 SEO (Search Engine Optimization)</h2>
@@ -162,11 +216,41 @@
           <li>Creative direction for all assets</li>
         </ul>
       </div>
-
     </div>
+    <button class="carousel-btn right">&#10095;</button>
   </div>
+</div>
 
-<script src='https://www.noupe.com/embed/01988628572174669966f8eee400a3dfb0db.js'></script>
+<script>
+  const track = document.querySelector('.carousel-track');
+  const prevBtn = document.querySelector('.carousel-btn.left');
+  const nextBtn = document.querySelector('.carousel-btn.right');
+  const cards = document.querySelectorAll('.card');
+  const cardsPerView = 3;
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const cardWidth = cards[0].getBoundingClientRect().width + 16; // card + margin
+    track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < cards.length - cardsPerView) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+
+  window.addEventListener('resize', updateCarousel);
+</script>
+
 <footer>
   &copy; 2025 Montrel Media. All rights reserved.
 </footer>
