@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,80 +7,15 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f9f9f9;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: white;
-      border-bottom: 1px solid #ddd;
-    }
-    nav a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: #333;
-    }
-    .container {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    h1, h2 {
-      font-family: 'Futura', sans-serif;
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    }
+    /* Ensure service images match the rest of your site’s look */
     .card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
-    }
-    .card h2 {
-      margin: 1rem;
-      font-size: 1.2rem;
-      color: #222;
-    }
-    .card p {
-      margin: 0 1rem;
-      color: #555;
-      font-size: 0.95rem;
-    }
-    .card ul {
-      margin: 1rem;
-      padding-left: 1.2rem;
-      color: #444;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: white;
-      margin-top: 2rem;
+      border-bottom: 3px solid var(--primary);
     }
   </style>
 </head>
-<body>
-
 <header>
   <img src="images/logo.png" alt="Montrel Media Logo" class="logo" />
   <nav>
@@ -91,151 +26,149 @@
     <a href="contact.html">Contact</a>
   </nav>
 </header>
+  <div class="container">
+    <h1>Our Services</h1>
+    <p><strong>Your Success, Our Strategy. Built to Grow With You.</strong></p>
+    <p>At Montrel Media, we provide modern marketing solutions that combine strategy, creativity, and cutting-edge technology. From digital dominance to traditional visibility, our services are designed to generate real results fast.</p>
 
-<div class="container">
-  <h1>Our Services</h1>
-  <p><strong>Your Success, Our Strategy. Built to Grow With You.</strong></p>
-  <p>At Montrel Media, we provide modern marketing solutions that combine strategy, creativity, and cutting-edge technology. From digital dominance to traditional visibility, our services are designed to generate real results fast.</p>
+    <div class="card-grid">
 
-  <div class="card-grid">
+      <div class="card">
+        <img src="images/service-seo.jpg" alt="SEO Service">
+        <h2>🔍 SEO (Search Engine Optimization)</h2>
+        <p>Climb to the top of search results and stay there. We increase organic visibility with data-driven strategies.</p>
+        <ul>
+          <li>Keyword research and strategy</li>
+          <li>On-page and technical optimization</li>
+          <li>Link-building and authority development</li>
+          <li>SEO audits and performance tracking</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <img src="images/service-seo.jpg" alt="SEO Service">
-      <h2>🔍 SEO (Search Engine Optimization)</h2>
-      <p>Climb to the top of search results and stay there. We increase organic visibility with data-driven strategies.</p>
-      <ul>
-        <li>Keyword research and strategy</li>
-        <li>On-page and technical optimization</li>
-        <li>Link-building and authority development</li>
-        <li>SEO audits and performance tracking</li>
-      </ul>
+      <div class="card">
+        <img src="images/service-social.jpg" alt="Social Media Marketing">
+        <h2>📱 Social Media Marketing</h2>
+        <p>Build your brand where your audience lives. We scale your presence across major platforms.</p>
+        <ul>
+          <li>Instagram, TikTok, LinkedIn, X (Twitter) campaigns</li>
+          <li>Paid advertising and audience targeting</li>
+          <li>Influencer partnerships</li>
+          <li>Custom content creation and scheduling</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <img src="images/service-web.jpg" alt="Website Design & Development">
+        <h2>🌐 Website Design & Development</h2>
+        <p>Make your first impression unforgettable and functional.</p>
+        <ul>
+          <li>Custom website builds or revamps</li>
+          <li>Mobile-optimized, fast-loading designs</li>
+          <li>SEO-ready structure</li>
+          <li>Shopify, WordPress, and CMS development</li>
+          <li>E-commerce functionality</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <img src="images/service-email.jpg" alt="Email Marketing">
+        <h2>📊 Email Marketing & Automation</h2>
+        <p>Turn clicks into customers with powerful email strategies.</p>
+        <ul>
+          <li>Email list segmentation and management</li>
+          <li>CRM integrations (e.g., HubSpot, Mailchimp)</li>
+          <li>Newsletter design and copy</li>
+          <li>Drip campaigns and performance optimization</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <img src="images/service-ai.jpg" alt="AI Powered Campaigns">
+        <h2>🧠 AI-Powered Campaigns</h2>
+        <p>Smarter marketing, powered by data and automation.</p>
+        <ul>
+          <li>Predictive analytics and personalization</li>
+          <li>AI-generated content and A/B testing</li>
+          <li>Automated customer journeys</li>
+          <li>Performance optimization through machine learning</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <img src="images/service-bus.jpg" alt="Bus Stand Advertising">
+        <h2>🚌 Bus Stand Advertising</h2>
+        <p>Get seen where your customers commute.</p>
+        <ul>
+          <li>Strategic placement in high-footfall areas</li>
+          <li>Static and digital formats</li>
+          <li>Regional or city-specific campaigns</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <img src="images/service-tv.jpg" alt="TV Advertising">
+        <h2>📺 TV Advertising</h2>
+        <p>Mass reach with message precision.</p>
+        <ul>
+          <li>Full TV campaign planning and scriptwriting</li>
+          <li>Production and post-production</li>
+          <li>Airtime buying and scheduling</li>
+          <li>Local, regional, or national reach</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <img src="images/service-newspaper.jpg" alt="Newspaper Advertising">
+        <h2>🗞 Newspaper Advertising</h2>
+        <p>Print is far from dead — it’s trusted.</p>
+        <ul>
+          <li>Ad design and formatting</li>
+          <li>Placement in local and national papers</li>
+          <li>Ideal for trust-building and community engagement</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <img src="images/service-print.jpg" alt="Print Materials">
+        <h2>📦 Print & Promotional Materials</h2>
+        <p>Branded materials that get you remembered.</p>
+        <ul>
+          <li>Business cards, flyers, brochures</li>
+          <li>Banners, signs, and event collateral</li>
+          <li>Branded merchandise and giveaways</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <img src="images/service-ppc.jpg" alt="PPC Advertising">
+        <h2>🎯 PPC (Pay-Per-Click Advertising)</h2>
+        <p>Drive instant traffic with laser-targeted ads.</p>
+        <ul>
+          <li>Google Ads, Bing Ads, YouTube Ads</li>
+          <li>Campaign setup and daily management</li>
+          <li>A/B testing and conversion tracking</li>
+          <li>Budget optimization for maximum ROI</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <img src="images/service-branding.jpg" alt="Branding">
+        <h2>🛠 Branding & Creative Direction</h2>
+        <p>Your brand is more than a logo — it’s your story.</p>
+        <ul>
+          <li>Logo and identity design</li>
+          <li>Brand strategy and messaging</li>
+          <li>Visual style guides and tone development</li>
+          <li>Creative direction for all assets</li>
+        </ul>
+      </div>
+
     </div>
-
-    <div class="card">
-      <img src="images/service-socialmedia.jpg" alt="Social Media Marketing">
-      <h2>📱 Social Media Marketing</h2>
-      <p>Build your brand where your audience lives. We scale your presence across major platforms.</p>
-      <ul>
-        <li>Instagram, TikTok, LinkedIn, X (Twitter) campaigns</li>
-        <li>Paid advertising and audience targeting</li>
-        <li>Influencer partnerships</li>
-        <li>Custom content creation and scheduling</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <img src="images/service-webdesign.jpg" alt="Website Design">
-      <h2>🌐 Website Design & Development</h2>
-      <p>Make your first impression unforgettable and functional.</p>
-      <ul>
-        <li>Custom website builds or revamps</li>
-        <li>Mobile-optimized, fast-loading designs</li>
-        <li>SEO-ready structure</li>
-        <li>Shopify, WordPress, and CMS development</li>
-        <li>E-commerce functionality</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <img src="images/service-email.jpg" alt="Email Marketing">
-      <h2>📊 Email Marketing & Automation</h2>
-      <p>Turn clicks into customers with powerful email strategies.</p>
-      <ul>
-        <li>Email list segmentation and management</li>
-        <li>CRM integrations (e.g., HubSpot, Mailchimp)</li>
-        <li>Newsletter design and copy</li>
-        <li>Drip campaigns and performance optimization</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <img src="images/service-ai.jpg" alt="AI Marketing">
-      <h2>🧠 AI-Powered Campaigns</h2>
-      <p>Smarter marketing, powered by data and automation.</p>
-      <ul>
-        <li>Predictive analytics and personalization</li>
-        <li>AI-generated content and A/B testing</li>
-        <li>Automated customer journeys</li>
-        <li>Performance optimization through machine learning</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <img src="images/service-busads.jpg" alt="Bus Stand Advertising">
-      <h2>🚌 Bus Stand Advertising</h2>
-      <p>Get seen where your customers commute.</p>
-      <ul>
-        <li>Strategic placement in high-footfall areas</li>
-        <li>Static and digital formats</li>
-        <li>Regional or city-specific campaigns</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <img src="images/service-tv.jpg" alt="TV Advertising">
-      <h2>📺 TV Advertising</h2>
-      <p>Mass reach with message precision.</p>
-      <ul>
-        <li>Full TV campaign planning and scriptwriting</li>
-        <li>Production and post-production</li>
-        <li>Airtime buying and scheduling</li>
-        <li>Local, regional, or national reach</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <img src="images/service-newspaper.jpg" alt="Newspaper Advertising">
-      <h2>🗞 Newspaper Advertising</h2>
-      <p>Print is far from dead — it’s trusted.</p>
-      <ul>
-        <li>Ad design and formatting</li>
-        <li>Placement in local and national papers</li>
-        <li>Ideal for trust-building and community engagement</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <img src="images/service-print.jpg" alt="Print Materials">
-      <h2>📦 Print & Promotional Materials</h2>
-      <p>Branded materials that get you remembered.</p>
-      <ul>
-        <li>Business cards, flyers, brochures</li>
-        <li>Banners, signs, and event collateral</li>
-        <li>Branded merchandise and giveaways</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <img src="images/service-ppc.jpg" alt="PPC Advertising">
-      <h2>🎯 PPC (Pay-Per-Click Advertising)</h2>
-      <p>Drive instant traffic with laser-targeted ads.</p>
-      <ul>
-        <li>Google Ads, Bing Ads, YouTube Ads</li>
-        <li>Campaign setup and daily management</li>
-        <li>A/B testing and conversion tracking</li>
-        <li>Budget optimization for maximum ROI</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <img src="images/service-branding.jpg" alt="Branding">
-      <h2>🛠 Branding & Creative Direction</h2>
-      <p>Your brand is more than a logo — it’s your story.</p>
-      <ul>
-        <li>Logo and identity design</li>
-        <li>Brand strategy and messaging</li>
-        <li>Visual style guides and tone development</li>
-        <li>Creative direction for all assets</li>
-      </ul>
-    </div>
-
   </div>
-</div>
 
 <script src='https://www.noupe.com/embed/01988628572174669966f8eee400a3dfb0db.js'></script>
 <footer>
   &copy; 2025 Montrel Media. All rights reserved.
 </footer>
-
 </body>
 </html>
