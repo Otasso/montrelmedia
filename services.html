@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -20,6 +20,7 @@
       position: relative;
       overflow: hidden;
       margin-top: 2rem;
+      flex: 2;
     }
 
     .carousel-track {
@@ -53,10 +54,63 @@
     .carousel-btn.left { left: 10px; }
     .carousel-btn.right { right: 10px; }
 
+    /* Services + Reviews side by side */
+    .services-reviews-wrapper {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    /* Reviews carousel styling */
+    .reviews-carousel {
+      flex: 1;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+      min-width: 280px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .review-slide {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .review-slide.active {
+      display: block;
+    }
+
+    .review-stars {
+      color: gold;
+      font-size: 1.2rem;
+    }
+
+    .review-text {
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    .review-author {
+      margin-top: 0.5rem;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* Mobile adjustments */
     @media (max-width: 900px) {
       .card {
         flex: 0 0 calc(50% - 1rem);
+      }
+      .services-reviews-wrapper {
+        flex-direction: column;
       }
     }
     @media (max-width: 600px) {
@@ -77,193 +131,163 @@
     <a href="contact.html">Contact</a>
   </nav>
 </header>
-</style>
-
-<div class="services-reviews-wrapper">
-  <!-- Existing Services Carousel -->
-  <div class="carousel">
-    <!-- your service cards and buttons stay exactly the same here -->
-  </div>
-
-  <!-- New Reviews Carousel -->
-  <div class="reviews-carousel">
-    <div class="review-slide active">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Montrel Media took our brand to the next level – our sales doubled in three months!"</p>
-      <p class="review-author">– Sarah J., Boutique Owner</p>
-    </div>
-    <div class="review-slide">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Professional, creative, and results-driven. Best marketing agency we’ve worked with."</p>
-      <p class="review-author">– James K., Tech Startup CEO</p>
-    </div>
-    <div class="review-slide">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Our online presence exploded thanks to their SEO and social campaigns."</p>
-      <p class="review-author">– Maria L., Restaurant Owner</p>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Autoplay review carousel
-  let reviewIndex = 0;
-  const reviews = document.querySelectorAll('.review-slide');
-
-  function showReview() {
-    reviews.forEach((rev, i) => {
-      rev.classList.toggle('active', i === reviewIndex);
-    });
-    reviewIndex = (reviewIndex + 1) % reviews.length;
-  }
-
-  setInterval(showReview, 4000); // change every 4 seconds
-</script>
 
 <div class="container">
   <h1>Our Services</h1>
   <p><strong>Your Success, Our Strategy. Built to Grow With You.</strong></p>
   <p>At Montrel Media, we provide modern marketing solutions that combine strategy, creativity, and cutting-edge technology. From digital dominance to traditional visibility, our services are designed to generate real results fast.</p>
 
-  <div class="carousel">
-    <button class="carousel-btn left">&#10094;</button>
-    <div class="carousel-track">
-      <!-- Cards go here -->
-      <div class="card">
-        <img src="images/service-seo.jpg" alt="SEO Service">
-        <h2>🔍 SEO (Search Engine Optimization)</h2>
-        <p>Climb to the top of search results and stay there. We increase organic visibility with data-driven strategies.</p>
-        <ul>
-          <li>Keyword research and strategy</li>
-          <li>On-page and technical optimization</li>
-          <li>Link-building and authority development</li>
-          <li>SEO audits and performance tracking</li>
-        </ul>
+  <div class="services-reviews-wrapper">
+    <!-- Services Carousel -->
+    <div class="carousel">
+      <button class="carousel-btn left">&#10094;</button>
+      <div class="carousel-track">
+        <div class="card">
+          <img src="images/service-seo.jpg" alt="SEO Service">
+          <h2>🔍 SEO (Search Engine Optimization)</h2>
+          <p>Climb to the top of search results and stay there. We increase organic visibility with data-driven strategies.</p>
+          <ul>
+            <li>Keyword research and strategy</li>
+            <li>On-page and technical optimization</li>
+            <li>Link-building and authority development</li>
+            <li>SEO audits and performance tracking</li>
+          </ul>
+        </div>
+        <div class="card">
+          <img src="images/service-social.png" alt="Social Media Marketing">
+          <h2>📱 Social Media Marketing</h2>
+          <p>Build your brand where your audience lives. We scale your presence across major platforms.</p>
+          <ul>
+            <li>Instagram, TikTok, LinkedIn, X (Twitter) campaigns</li>
+            <li>Paid advertising and audience targeting</li>
+            <li>Influencer partnerships</li>
+            <li>Custom content creation and scheduling</li>
+          </ul>
+        </div>
+        <div class="card">
+          <img src="images/website.jpg" alt="Website Design & Development">
+          <h2>🌐 Website Design & Development</h2>
+          <p>Make your first impression unforgettable and functional.</p>
+          <ul>
+            <li>Custom website builds or revamps</li>
+            <li>Mobile-optimized, fast-loading designs</li>
+            <li>SEO-ready structure</li>
+            <li>Shopify, WordPress, and CMS development</li>
+            <li>E-commerce functionality</li>
+          </ul>
+        </div>
+        <div class="card">
+          <img src="images/email marketing.png" alt="Email Marketing">
+          <h2>📊 Email Marketing & Automation</h2>
+          <p>Turn clicks into customers with powerful email strategies.</p>
+          <ul>
+            <li>Email list segmentation and management</li>
+            <li>CRM integrations (e.g., HubSpot, Mailchimp)</li>
+            <li>Newsletter design and copy</li>
+            <li>Drip campaigns and performance optimization</li>
+          </ul>
+        </div>
+        <div class="card">
+          <img src="images/service-ai.jpg" alt="AI Powered Campaigns">
+          <h2>🧠 AI-Powered Campaigns</h2>
+          <p>Smarter marketing, powered by data and automation.</p>
+          <ul>
+            <li>Predictive analytics and personalization</li>
+            <li>AI-generated content and A/B testing</li>
+            <li>Automated customer journeys</li>
+            <li>Performance optimization through machine learning</li>
+          </ul>
+        </div>
+        <div class="card">
+          <img src="images/Bus.jpg" alt="Bus Stand Advertising">
+          <h2>🚌 Bus Stand Advertising</h2>
+          <p>Get seen where your customers commute.</p>
+          <ul>
+            <li>Strategic placement in high-footfall areas</li>
+            <li>Static and digital formats</li>
+            <li>Regional or city-specific campaigns</li>
+          </ul>
+        </div>
+        <div class="card">
+          <img src="images/tvads.jpeg" alt="TV Advertising">
+          <h2>📺 TV Advertising</h2>
+          <p>Mass reach with message precision.</p>
+          <ul>
+            <li>Full TV campaign planning and scriptwriting</li>
+            <li>Production and post-production</li>
+            <li>Airtime buying and scheduling</li>
+            <li>Local, regional, or national reach</li>
+          </ul>
+        </div>
+        <div class="card">
+          <img src="images/newspaperad.jpg" alt="Newspaper Advertising">
+          <h2>🗞 Newspaper Advertising</h2>
+          <p>Print is far from dead — it’s trusted.</p>
+          <ul>
+            <li>Ad design and formatting</li>
+            <li>Placement in local and national papers</li>
+            <li>Ideal for trust-building and community engagement</li>
+          </ul>
+        </div>
+        <div class="card">
+          <img src="images/printpromotional.png" alt="Print Materials">
+          <h2>📦 Print & Promotional Materials</h2>
+          <p>Branded materials that get you remembered.</p>
+          <ul>
+            <li>Business cards, flyers, brochures</li>
+            <li>Banners, signs, and event collateral</li>
+            <li>Branded merchandise and giveaways</li>
+          </ul>
+        </div>
+        <div class="card">
+          <img src="ppc.png" alt="PPC Advertising">
+          <h2>🎯 PPC (Pay-Per-Click Advertising)</h2>
+          <p>Drive instant traffic with laser-targeted ads.</p>
+          <ul>
+            <li>Google Ads, Bing Ads, YouTube Ads</li>
+            <li>Campaign setup and daily management</li>
+            <li>A/B testing and conversion tracking</li>
+            <li>Budget optimization for maximum ROI</li>
+          </ul>
+        </div>
+        <div class="card">
+          <img src="images/logomaker.png" alt="Branding">
+          <h2>🛠 Branding & Creative Direction</h2>
+          <p>Your brand is more than a logo — it’s your story.</p>
+          <ul>
+            <li>Logo and identity design</li>
+            <li>Brand strategy and messaging</li>
+            <li>Visual style guides and tone development</li>
+            <li>Creative direction for all assets</li>
+          </ul>
+        </div>
       </div>
+      <button class="carousel-btn right">&#10095;</button>
+    </div>
 
-      <div class="card">
-        <img src="images/service-social.png" alt="Social Media Marketing">
-        <h2>📱 Social Media Marketing</h2>
-        <p>Build your brand where your audience lives. We scale your presence across major platforms.</p>
-        <ul>
-          <li>Instagram, TikTok, LinkedIn, X (Twitter) campaigns</li>
-          <li>Paid advertising and audience targeting</li>
-          <li>Influencer partnerships</li>
-          <li>Custom content creation and scheduling</li>
-        </ul>
+    <!-- Reviews Carousel -->
+    <div class="reviews-carousel">
+      <div class="review-slide active">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Montrel Media took our brand to the next level – our sales doubled in three months!"</p>
+        <p class="review-author">– Sarah J., Boutique Owner</p>
       </div>
-
-      <div class="card">
-        <img src="images/website.jpg" alt="Website Design & Development">
-        <h2>🌐 Website Design & Development</h2>
-        <p>Make your first impression unforgettable and functional.</p>
-        <ul>
-          <li>Custom website builds or revamps</li>
-          <li>Mobile-optimized, fast-loading designs</li>
-          <li>SEO-ready structure</li>
-          <li>Shopify, WordPress, and CMS development</li>
-          <li>E-commerce functionality</li>
-        </ul>
+      <div class="review-slide">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Professional, creative, and results-driven. Best marketing agency we’ve worked with."</p>
+        <p class="review-author">– James K., Tech Startup CEO</p>
       </div>
-
-      <div class="card">
-        <img src="images/email marketing.png" alt="Email Marketing">
-        <h2>📊 Email Marketing & Automation</h2>
-        <p>Turn clicks into customers with powerful email strategies.</p>
-        <ul>
-          <li>Email list segmentation and management</li>
-          <li>CRM integrations (e.g., HubSpot, Mailchimp)</li>
-          <li>Newsletter design and copy</li>
-          <li>Drip campaigns and performance optimization</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <img src="images/service-ai.jpg" alt="AI Powered Campaigns">
-        <h2>🧠 AI-Powered Campaigns</h2>
-        <p>Smarter marketing, powered by data and automation.</p>
-        <ul>
-          <li>Predictive analytics and personalization</li>
-          <li>AI-generated content and A/B testing</li>
-          <li>Automated customer journeys</li>
-          <li>Performance optimization through machine learning</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <img src="images/Bus.jpg" alt="Bus Stand Advertising">
-        <h2>🚌 Bus Stand Advertising</h2>
-        <p>Get seen where your customers commute.</p>
-        <ul>
-          <li>Strategic placement in high-footfall areas</li>
-          <li>Static and digital formats</li>
-          <li>Regional or city-specific campaigns</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <img src="images/tvads.jpeg" alt="TV Advertising">
-        <h2>📺 TV Advertising</h2>
-        <p>Mass reach with message precision.</p>
-        <ul>
-          <li>Full TV campaign planning and scriptwriting</li>
-          <li>Production and post-production</li>
-          <li>Airtime buying and scheduling</li>
-          <li>Local, regional, or national reach</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <img src="images/newspaperad.jpg" alt="Newspaper Advertising">
-        <h2>🗞 Newspaper Advertising</h2>
-        <p>Print is far from dead — it’s trusted.</p>
-        <ul>
-          <li>Ad design and formatting</li>
-          <li>Placement in local and national papers</li>
-          <li>Ideal for trust-building and community engagement</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <img src="images/printpromotional.png" alt="Print Materials">
-        <h2>📦 Print & Promotional Materials</h2>
-        <p>Branded materials that get you remembered.</p>
-        <ul>
-          <li>Business cards, flyers, brochures</li>
-          <li>Banners, signs, and event collateral</li>
-          <li>Branded merchandise and giveaways</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <img src="ppc.png" alt="PPC Advertising">
-        <h2>🎯 PPC (Pay-Per-Click Advertising)</h2>
-        <p>Drive instant traffic with laser-targeted ads.</p>
-        <ul>
-          <li>Google Ads, Bing Ads, YouTube Ads</li>
-          <li>Campaign setup and daily management</li>
-          <li>A/B testing and conversion tracking</li>
-          <li>Budget optimization for maximum ROI</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <img src="images/logomaker.png" alt="Branding">
-        <h2>🛠 Branding & Creative Direction</h2>
-        <p>Your brand is more than a logo — it’s your story.</p>
-        <ul>
-          <li>Logo and identity design</li>
-          <li>Brand strategy and messaging</li>
-          <li>Visual style guides and tone development</li>
-          <li>Creative direction for all assets</li>
-        </ul>
+      <div class="review-slide">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Our online presence exploded thanks to their SEO and social campaigns."</p>
+        <p class="review-author">– Maria L., Restaurant Owner</p>
       </div>
     </div>
-    <button class="carousel-btn right">&#10095;</button>
   </div>
 </div>
 
 <script>
+  // Services Carousel
   const track = document.querySelector('.carousel-track');
   const prevBtn = document.querySelector('.carousel-btn.left');
   const nextBtn = document.querySelector('.carousel-btn.right');
@@ -272,7 +296,7 @@
   let currentIndex = 0;
 
   function updateCarousel() {
-    const cardWidth = cards[0].getBoundingClientRect().width + 16; // card + margin
+    const cardWidth = cards[0].getBoundingClientRect().width + 16;
     track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
   }
 
@@ -291,66 +315,21 @@
   });
 
   window.addEventListener('resize', updateCarousel);
-<style>
-  /* Container for services and reviews side-by-side */
-  .services-reviews-wrapper {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
+
+  // Reviews Carousel Autoplay
+  let reviewIndex = 0;
+  const reviews = document.querySelectorAll('.review-slide');
+
+  function showReview() {
+    reviews.forEach((rev, i) => {
+      rev.classList.toggle('active', i === reviewIndex);
+    });
+    reviewIndex = (reviewIndex + 1) % reviews.length;
   }
 
-  /* Reviews carousel */
-  .reviews-carousel {
-    flex: 1;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    padding: 1rem;
-    min-width: 280px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .review-slide {
-    display: none;
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-  .review-slide.active {
-    display: block;
-  }
-
-  .review-stars {
-    color: gold;
-    font-size: 1.2rem;
-  }
-
-  .review-text {
-    font-style: italic;
-    margin-top: 0.5rem;
-  }
-
-  .review-author {
-    margin-top: 0.5rem;
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Stack on small screens */
-  @media (max-width: 900px) {
-    .services-reviews-wrapper {
-      flex-direction: column;
-    }
-  }
-
-  
+  setInterval(showReview, 4000);
 </script>
-<script src='https://www.noupe.com/embed/01988628572174669966f8eee400a3dfb0db.js'></script>
+
 <footer>
   &copy; 2025 Montrel Media. All rights reserved.
 </footer>
