@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -52,6 +52,48 @@
     }
     .carousel-btn.left { left: 10px; }
     .carousel-btn.right { right: 10px; }
+
+    /* Review carousel styling */
+    .reviews-carousel {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin: 3rem auto;
+      max-width: 600px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .review-slide {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .review-slide.active {
+      display: block;
+    }
+
+    .review-stars {
+      color: gold;
+      font-size: 1.2rem;
+    }
+
+    .review-text {
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    .review-author {
+      margin-top: 0.5rem;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
     /* Mobile adjustments */
     @media (max-width: 900px) {
@@ -221,7 +263,27 @@
   </div>
 </div>
 
+<!-- Reviews Carousel at bottom -->
+<div class="reviews-carousel">
+  <div class="review-slide active">
+    <div class="review-stars">★★★★★</div>
+    <p class="review-text">"Montrel Media took our brand to the next level – our sales doubled in three months!"</p>
+    <p class="review-author">– Sarah J., Boutique Owner</p>
+  </div>
+  <div class="review-slide">
+    <div class="review-stars">★★★★★</div>
+    <p class="review-text">"Professional, creative, and results-driven. Best marketing agency we’ve worked with."</p>
+    <p class="review-author">– James K., Tech Startup CEO</p>
+  </div>
+  <div class="review-slide">
+    <div class="review-stars">★★★★★</div>
+    <p class="review-text">"Our online presence exploded thanks to their SEO and social campaigns."</p>
+    <p class="review-author">– Maria L., Restaurant Owner</p>
+  </div>
+</div>
+
 <script>
+  // Services carousel
   const track = document.querySelector('.carousel-track');
   const prevBtn = document.querySelector('.carousel-btn.left');
   const nextBtn = document.querySelector('.carousel-btn.right');
@@ -249,6 +311,19 @@
   });
 
   window.addEventListener('resize', updateCarousel);
+
+  // Review carousel autoplay
+  let reviewIndex = 0;
+  const reviews = document.querySelectorAll('.review-slide');
+
+  function showReview() {
+    reviews.forEach((rev, i) => {
+      rev.classList.toggle('active', i === reviewIndex);
+    });
+    reviewIndex = (reviewIndex + 1) % reviews.length;
+  }
+
+  setInterval(showReview, 4000);
 </script>
 
 <footer>
