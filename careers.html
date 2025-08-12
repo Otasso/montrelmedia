@@ -16,41 +16,13 @@
       padding: 2rem;
       animation: fadeUp 0.5s ease-in-out;
     }
-
-    .job-card {
-      display: none;
-    }
-
-    .job-card.active {
-      display: block;
-    }
-
-    .job-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .job-card p {
-      margin-bottom: 1rem;
-    }
-
-    .job-card ul {
-      margin-bottom: 1rem;
-      padding-left: 1.2rem;
-    }
-
-    .deadline {
-      font-style: italic;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-
-    .job-controls {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1rem;
-    }
-
+    .job-card { display: none; }
+    .job-card.active { display: block; }
+    .job-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .job-card p { margin-bottom: 1rem; }
+    .job-card ul { margin-bottom: 1rem; padding-left: 1.2rem; }
+    .deadline { font-style: italic; font-size: 0.9rem; opacity: 0.7; }
+    .job-controls { display: flex; justify-content: space-between; margin-top: 1rem; }
     .job-controls button {
       background-color: var(--primary);
       color: var(--secondary);
@@ -62,23 +34,14 @@
       cursor: pointer;
       transition: background var(--transition);
     }
-
-    .job-controls button:hover {
-      background-color: #07301b;
-    }
-
+    .job-controls button:hover { background-color: #07301b; }
     .apply-form {
       margin-top: 1.5rem;
       background-color: rgba(255, 255, 255, 0.1);
       padding: 1.5rem;
       border-radius: 8px;
     }
-
-    .apply-form h4 {
-      margin-bottom: 1rem;
-      font-family: 'Futura', sans-serif;
-    }
-
+    .apply-form h4 { margin-bottom: 1rem; font-family: 'Futura', sans-serif; }
     .apply-form input,
     .apply-form textarea {
       width: 100%;
@@ -88,11 +51,7 @@
       margin-bottom: 1rem;
       font-family: 'Stix Two Text', serif;
     }
-
-    .apply-form input[type="file"] {
-      background-color: #fff;
-    }
-
+    .apply-form input[type="file"] { background-color: #fff; }
     .apply-form button {
       background-color: var(--primary);
       color: var(--secondary);
@@ -104,9 +63,14 @@
       cursor: pointer;
       transition: background var(--transition);
     }
-
-    .apply-form button:hover {
-      background-color: #07301b;
+    .apply-form button:hover { background-color: #07301b; }
+    .office-image {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .office-image img {
+      max-width: 100%;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -127,6 +91,7 @@
     <p>We're building more than an agency—we're shaping the future of marketing leadership.</p>
 
     <div class="job-slider">
+      <!-- Job 1 -->
       <div class="job-card active">
         <h3>Digital Marketing Executive</h3>
         <p>Lead our paid ad campaigns and optimize performance across digital channels.</p>
@@ -139,6 +104,9 @@
 
         <div class="apply-form">
           <h4>Apply for this role</h4>
+          <div class="office-image">
+            <img src="images/montrel-office.jpg" alt="Montrel Media Office">
+          </div>
           <form action="mailto:careers@montrelmedia.com" method="POST" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="Full Name" required />
             <input type="email" name="email" placeholder="Email Address" required />
@@ -149,6 +117,7 @@
         </div>
       </div>
 
+      <!-- Job 2 -->
       <div class="job-card">
         <h3>Brand Strategist</h3>
         <p>Develop unique brand voices and campaigns across digital and traditional formats.</p>
@@ -161,6 +130,9 @@
 
         <div class="apply-form">
           <h4>Apply for this role</h4>
+          <div class="office-image">
+            <img src="images/montrel-office.jpg" alt="Montrel Media Office">
+          </div>
           <form action="mailto:careers@montrelmedia.com" method="POST" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="Full Name" required />
             <input type="email" name="email" placeholder="Email Address" required />
@@ -171,6 +143,7 @@
         </div>
       </div>
 
+      <!-- Job 3 -->
       <div class="job-card">
         <h3>Marketing Analyst</h3>
         <p>Transform data into insights that drive business growth across campaigns.</p>
@@ -183,6 +156,9 @@
 
         <div class="apply-form">
           <h4>Apply for this role</h4>
+          <div class="office-image">
+            <img src="images/montrel-office.jpg" alt="Montrel Media Office">
+          </div>
           <form action="mailto:careers@montrelmedia.com" method="POST" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="Full Name" required />
             <input type="email" name="email" placeholder="Email Address" required />
@@ -193,6 +169,7 @@
         </div>
       </div>
 
+      <!-- Controls -->
       <div class="job-controls">
         <button id="prev">← Previous</button>
         <button id="next">Next →</button>
@@ -225,6 +202,6 @@
       updateCards();
     });
   </script>
-<script src='https://www.noupe.com/embed/01988628572174669966f8eee400a3dfb0db.js'></script>
+  <script src='https://www.noupe.com/embed/01988628572174669966f8eee400a3dfb0db.js'></script>
 </body>
 </html>
